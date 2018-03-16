@@ -15,6 +15,21 @@
 		042E3D9C205B68D60082B18E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3D9B205B68D60082B18E /* main.m */; };
 		042E3DA6205B68D70082B18E /* Virtual_Private_NetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DA5205B68D70082B18E /* Virtual_Private_NetworkTests.m */; };
 		042E3DB1205B68D70082B18E /* Virtual_Private_NetworkUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DB0205B68D70082B18E /* Virtual_Private_NetworkUITests.m */; };
+		042E3DC4205B6B250082B18E /* RouteLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DC3205B6B250082B18E /* RouteLine.m */; };
+		042E3DC7205B72EF0082B18E /* PurchaseOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DC6205B72EF0082B18E /* PurchaseOrder.m */; };
+		042E3DCA205B74830082B18E /* VPTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DC9205B74830082B18E /* VPTabBarViewController.m */; };
+		042E3DCD205B74B60082B18E /* VPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DCC205B74B60082B18E /* VPHomeViewController.m */; };
+		042E3DD0205B75050082B18E /* VPMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DCF205B75050082B18E /* VPMemberViewController.m */; };
+		042E3DD3205B75100082B18E /* VPMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DD2205B75100082B18E /* VPMyViewController.m */; };
+		042E3DD6205B75300082B18E /* VPAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DD5205B75300082B18E /* VPAboutUsViewController.m */; };
+		042E3DD9205B755D0082B18E /* VPAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DD8205B755D0082B18E /* VPAgreementViewController.m */; };
+		042E3DDC205B766A0082B18E /* VPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DDB205B766A0082B18E /* VPBaseViewController.m */; };
+		042E3DDF205B982C0082B18E /* VPBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DDE205B982C0082B18E /* VPBaseNavigationController.m */; };
+		042E3DE2205B99ED0082B18E /* UIViewController+PopBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DE0205B99EC0082B18E /* UIViewController+PopBlock.m */; };
+		042E3DE8205B9BD00082B18E /* UIBarButtonItem+addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DE4205B9BCF0082B18E /* UIBarButtonItem+addition.m */; };
+		042E3DE9205B9BD00082B18E /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DE7205B9BCF0082B18E /* UIView+Extension.m */; };
+		042E3DEC205B9C850082B18E /* UINavigationBar+alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DEB205B9C850082B18E /* UINavigationBar+alpha.m */; };
+		D022409735005DF6D77FC1DC /* libPods-Virtual Private Network.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A20EF261F11D61A138C00D76 /* libPods-Virtual Private Network.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +66,39 @@
 		042E3DAC205B68D70082B18E /* Virtual Private NetworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Virtual Private NetworkUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		042E3DB0205B68D70082B18E /* Virtual_Private_NetworkUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Virtual_Private_NetworkUITests.m; sourceTree = "<group>"; };
 		042E3DB2205B68D70082B18E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		042E3DBE205B69E00082B18E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		042E3DC2205B6B250082B18E /* RouteLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouteLine.h; sourceTree = "<group>"; };
+		042E3DC3205B6B250082B18E /* RouteLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RouteLine.m; sourceTree = "<group>"; };
+		042E3DC5205B72EF0082B18E /* PurchaseOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PurchaseOrder.h; sourceTree = "<group>"; };
+		042E3DC6205B72EF0082B18E /* PurchaseOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PurchaseOrder.m; sourceTree = "<group>"; };
+		042E3DC8205B74830082B18E /* VPTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPTabBarViewController.h; sourceTree = "<group>"; };
+		042E3DC9205B74830082B18E /* VPTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPTabBarViewController.m; sourceTree = "<group>"; };
+		042E3DCB205B74B60082B18E /* VPHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPHomeViewController.h; sourceTree = "<group>"; };
+		042E3DCC205B74B60082B18E /* VPHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPHomeViewController.m; sourceTree = "<group>"; };
+		042E3DCE205B75050082B18E /* VPMemberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPMemberViewController.h; sourceTree = "<group>"; };
+		042E3DCF205B75050082B18E /* VPMemberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPMemberViewController.m; sourceTree = "<group>"; };
+		042E3DD1205B75100082B18E /* VPMyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPMyViewController.h; sourceTree = "<group>"; };
+		042E3DD2205B75100082B18E /* VPMyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPMyViewController.m; sourceTree = "<group>"; };
+		042E3DD4205B75300082B18E /* VPAboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPAboutUsViewController.h; sourceTree = "<group>"; };
+		042E3DD5205B75300082B18E /* VPAboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPAboutUsViewController.m; sourceTree = "<group>"; };
+		042E3DD7205B755D0082B18E /* VPAgreementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPAgreementViewController.h; sourceTree = "<group>"; };
+		042E3DD8205B755D0082B18E /* VPAgreementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPAgreementViewController.m; sourceTree = "<group>"; };
+		042E3DDA205B766A0082B18E /* VPBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPBaseViewController.h; sourceTree = "<group>"; };
+		042E3DDB205B766A0082B18E /* VPBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPBaseViewController.m; sourceTree = "<group>"; };
+		042E3DDD205B982C0082B18E /* VPBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPBaseNavigationController.h; sourceTree = "<group>"; };
+		042E3DDE205B982C0082B18E /* VPBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPBaseNavigationController.m; sourceTree = "<group>"; };
+		042E3DE0205B99EC0082B18E /* UIViewController+PopBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PopBlock.m"; sourceTree = "<group>"; };
+		042E3DE1205B99ED0082B18E /* UIViewController+PopBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PopBlock.h"; sourceTree = "<group>"; };
+		042E3DE4205B9BCF0082B18E /* UIBarButtonItem+addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+addition.m"; sourceTree = "<group>"; };
+		042E3DE5205B9BCF0082B18E /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		042E3DE6205B9BCF0082B18E /* UIBarButtonItem+addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+addition.h"; sourceTree = "<group>"; };
+		042E3DE7205B9BCF0082B18E /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		042E3DEA205B9C850082B18E /* UINavigationBar+alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+alpha.h"; sourceTree = "<group>"; };
+		042E3DEB205B9C850082B18E /* UINavigationBar+alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+alpha.m"; sourceTree = "<group>"; };
+		042E3DED205BA3100082B18E /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		8EB3A622CCB19CD66EF78675 /* Pods-Virtual Private Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Private Network.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Virtual Private Network/Pods-Virtual Private Network.debug.xcconfig"; sourceTree = "<group>"; };
+		A20EF261F11D61A138C00D76 /* libPods-Virtual Private Network.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Virtual Private Network.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F318D9FD4BEFEABDF898F6B8 /* Pods-Virtual Private Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Private Network.release.xcconfig"; path = "Pods/Target Support Files/Pods-Virtual Private Network/Pods-Virtual Private Network.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D022409735005DF6D77FC1DC /* libPods-Virtual Private Network.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +134,8 @@
 				042E3DA4205B68D70082B18E /* Virtual Private NetworkTests */,
 				042E3DAF205B68D70082B18E /* Virtual Private NetworkUITests */,
 				042E3D8A205B68D60082B18E /* Products */,
+				E2E3DBD4AA02B5C595D81A42 /* Pods */,
+				9BA20C00B420794597B72E6A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +152,10 @@
 		042E3D8B205B68D60082B18E /* Virtual Private Network */ = {
 			isa = PBXGroup;
 			children = (
+				042E3DE3205B9BCF0082B18E /* Category */,
+				042E3DC1205B6AFD0082B18E /* View */,
+				042E3DC0205B6AEB0082B18E /* Model */,
+				042E3DBF205B6AC80082B18E /* Controller */,
 				042E3D8C205B68D60082B18E /* AppDelegate.h */,
 				042E3D8D205B68D60082B18E /* AppDelegate.m */,
 				042E3D8F205B68D60082B18E /* ViewController.h */,
@@ -110,6 +165,8 @@
 				042E3D97205B68D60082B18E /* LaunchScreen.storyboard */,
 				042E3D9A205B68D60082B18E /* Info.plist */,
 				042E3D9B205B68D60082B18E /* main.m */,
+				042E3DBE205B69E00082B18E /* PrefixHeader.pch */,
+				042E3DED205BA3100082B18E /* Macro.h */,
 			);
 			path = "Virtual Private Network";
 			sourceTree = "<group>";
@@ -132,6 +189,79 @@
 			path = "Virtual Private NetworkUITests";
 			sourceTree = "<group>";
 		};
+		042E3DBF205B6AC80082B18E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				042E3DC8205B74830082B18E /* VPTabBarViewController.h */,
+				042E3DC9205B74830082B18E /* VPTabBarViewController.m */,
+				042E3DCB205B74B60082B18E /* VPHomeViewController.h */,
+				042E3DCC205B74B60082B18E /* VPHomeViewController.m */,
+				042E3DCE205B75050082B18E /* VPMemberViewController.h */,
+				042E3DCF205B75050082B18E /* VPMemberViewController.m */,
+				042E3DD1205B75100082B18E /* VPMyViewController.h */,
+				042E3DD2205B75100082B18E /* VPMyViewController.m */,
+				042E3DD4205B75300082B18E /* VPAboutUsViewController.h */,
+				042E3DD5205B75300082B18E /* VPAboutUsViewController.m */,
+				042E3DD7205B755D0082B18E /* VPAgreementViewController.h */,
+				042E3DD8205B755D0082B18E /* VPAgreementViewController.m */,
+				042E3DDA205B766A0082B18E /* VPBaseViewController.h */,
+				042E3DDB205B766A0082B18E /* VPBaseViewController.m */,
+				042E3DDD205B982C0082B18E /* VPBaseNavigationController.h */,
+				042E3DDE205B982C0082B18E /* VPBaseNavigationController.m */,
+				042E3DE1205B99ED0082B18E /* UIViewController+PopBlock.h */,
+				042E3DE0205B99EC0082B18E /* UIViewController+PopBlock.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		042E3DC0205B6AEB0082B18E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				042E3DC2205B6B250082B18E /* RouteLine.h */,
+				042E3DC3205B6B250082B18E /* RouteLine.m */,
+				042E3DC5205B72EF0082B18E /* PurchaseOrder.h */,
+				042E3DC6205B72EF0082B18E /* PurchaseOrder.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		042E3DC1205B6AFD0082B18E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		042E3DE3205B9BCF0082B18E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				042E3DEA205B9C850082B18E /* UINavigationBar+alpha.h */,
+				042E3DEB205B9C850082B18E /* UINavigationBar+alpha.m */,
+				042E3DE4205B9BCF0082B18E /* UIBarButtonItem+addition.m */,
+				042E3DE5205B9BCF0082B18E /* UIView+Extension.h */,
+				042E3DE6205B9BCF0082B18E /* UIBarButtonItem+addition.h */,
+				042E3DE7205B9BCF0082B18E /* UIView+Extension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		9BA20C00B420794597B72E6A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A20EF261F11D61A138C00D76 /* libPods-Virtual Private Network.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2E3DBD4AA02B5C595D81A42 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8EB3A622CCB19CD66EF78675 /* Pods-Virtual Private Network.debug.xcconfig */,
+				F318D9FD4BEFEABDF898F6B8 /* Pods-Virtual Private Network.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +269,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 042E3DB5205B68D70082B18E /* Build configuration list for PBXNativeTarget "Virtual Private Network" */;
 			buildPhases = (
+				55718BC6A32AC5D83E7B285B /* [CP] Check Pods Manifest.lock */,
 				042E3D85205B68D60082B18E /* Sources */,
 				042E3D86205B68D60082B18E /* Frameworks */,
 				042E3D87205B68D60082B18E /* Resources */,
+				2ADFE58DE03F45FDE6B71E34 /* [CP] Embed Pods Frameworks */,
+				5569D97A166F18A7B8BB7D9D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,14 +393,83 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2ADFE58DE03F45FDE6B71E34 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Virtual Private Network/Pods-Virtual Private Network-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5569D97A166F18A7B8BB7D9D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Virtual Private Network/Pods-Virtual Private Network-resources.sh",
+				"${PODS_ROOT}/AVOSCloud/AVOS/AVOSCloud/AVOSCloud_Art.inc",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Virtual Private Network/Pods-Virtual Private Network-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55718BC6A32AC5D83E7B285B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Virtual Private Network-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		042E3D85205B68D60082B18E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042E3DD0205B75050082B18E /* VPMemberViewController.m in Sources */,
+				042E3DDC205B766A0082B18E /* VPBaseViewController.m in Sources */,
+				042E3DCA205B74830082B18E /* VPTabBarViewController.m in Sources */,
+				042E3DD6205B75300082B18E /* VPAboutUsViewController.m in Sources */,
+				042E3DD9205B755D0082B18E /* VPAgreementViewController.m in Sources */,
 				042E3D91205B68D60082B18E /* ViewController.m in Sources */,
+				042E3DD3205B75100082B18E /* VPMyViewController.m in Sources */,
+				042E3DC4205B6B250082B18E /* RouteLine.m in Sources */,
+				042E3DDF205B982C0082B18E /* VPBaseNavigationController.m in Sources */,
+				042E3DCD205B74B60082B18E /* VPHomeViewController.m in Sources */,
+				042E3DEC205B9C850082B18E /* UINavigationBar+alpha.m in Sources */,
 				042E3D9C205B68D60082B18E /* main.m in Sources */,
 				042E3D8E205B68D60082B18E /* AppDelegate.m in Sources */,
+				042E3DE2205B99ED0082B18E /* UIViewController+PopBlock.m in Sources */,
+				042E3DC7205B72EF0082B18E /* PurchaseOrder.m in Sources */,
+				042E3DE9205B9BD00082B18E /* UIView+Extension.m in Sources */,
+				042E3DE8205B9BD00082B18E /* UIBarButtonItem+addition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,11 +630,15 @@
 		};
 		042E3DB6205B68D70082B18E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EB3A622CCB19CD66EF78675 /* Pods-Virtual Private Network.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FJC4YVDSFX;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/mac/Desktop/Virtual Private Network/Virtual Private Network/PrefixHeader.pch";
 				INFOPLIST_FILE = "Virtual Private Network/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lizhipeng.test.Virtual-Private-Network";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -442,11 +648,15 @@
 		};
 		042E3DB7205B68D70082B18E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F318D9FD4BEFEABDF898F6B8 /* Pods-Virtual Private Network.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FJC4YVDSFX;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/mac/Desktop/Virtual Private Network/Virtual Private Network/PrefixHeader.pch";
 				INFOPLIST_FILE = "Virtual Private Network/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lizhipeng.test.Virtual-Private-Network";
 				PRODUCT_NAME = "$(TARGET_NAME)";
