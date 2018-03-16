@@ -7,8 +7,9 @@
 //
 
 #import "VPMyViewController.h"
+#import "MyCell.h"
 
-@interface VPMyViewController ()
+@interface VPMyViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
@@ -16,12 +17,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
+- (UITableView *)tableView{
+    if (!_tableView) {
+        _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+        _tableView.delegate=self;
+        _tableView.dataSource=self;
+    }
+    return _tableView;
+}
+-(NSArray *)dataArray{
+    if (_dataArray) {
+        _dataArray=@[@"Due to the time",@"The terms of service",@"Privacy policy",@"About us"];
+    }
+    return _dataArray;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataArray.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellId=@"MyCell";
+    MyCell *cell=(MyCell*)[tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell=[[MyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    }
+    return cell;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

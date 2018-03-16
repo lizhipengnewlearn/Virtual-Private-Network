@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface VPMyViewController : UIViewController
-
+#import "VPBaseViewController.h"
+@interface VPMyViewController : VPBaseViewController
+@property (nonatomic,strong)UITableView *tableView;
+@property (nonatomic,strong)NSArray *dataArray;
 @end

@@ -114,9 +114,6 @@
     }
     [super pushViewController:viewController animated:animated];
     
-    
-    
-    
     // 修正push控制器tabbar上移问题
     if (@available(iOS 11.0, *)){
         // 修改tabBra的frame
@@ -126,7 +123,15 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
+-(void)back:(UIBarButtonItem *)sender{
+    [self.view endEditing:YES];
+    UIViewController * currentVC = self.topViewController;
+    if (currentVC.popBlock) {
+        currentVC.popBlock(sender);
+    }else{
+        [self popViewControllerAnimated:YES];
+    }
+}- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

@@ -29,6 +29,8 @@
 		042E3DE8205B9BD00082B18E /* UIBarButtonItem+addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DE4205B9BCF0082B18E /* UIBarButtonItem+addition.m */; };
 		042E3DE9205B9BD00082B18E /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DE7205B9BCF0082B18E /* UIView+Extension.m */; };
 		042E3DEC205B9C850082B18E /* UINavigationBar+alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DEB205B9C850082B18E /* UINavigationBar+alpha.m */; };
+		042E3DF0205BAF2D0082B18E /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DEF205BAF2D0082B18E /* MyCell.m */; };
+		042E3DF3205BB2D30082B18E /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DF1205BB2D20082B18E /* CustomLabel.m */; };
 		D022409735005DF6D77FC1DC /* libPods-Virtual Private Network.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A20EF261F11D61A138C00D76 /* libPods-Virtual Private Network.a */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,10 @@
 		042E3DEA205B9C850082B18E /* UINavigationBar+alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+alpha.h"; sourceTree = "<group>"; };
 		042E3DEB205B9C850082B18E /* UINavigationBar+alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+alpha.m"; sourceTree = "<group>"; };
 		042E3DED205BA3100082B18E /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		042E3DEE205BAF2D0082B18E /* MyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
+		042E3DEF205BAF2D0082B18E /* MyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
+		042E3DF1205BB2D20082B18E /* CustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabel.m; sourceTree = "<group>"; };
+		042E3DF2205BB2D30082B18E /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
 		8EB3A622CCB19CD66EF78675 /* Pods-Virtual Private Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Private Network.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Virtual Private Network/Pods-Virtual Private Network.debug.xcconfig"; sourceTree = "<group>"; };
 		A20EF261F11D61A138C00D76 /* libPods-Virtual Private Network.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Virtual Private Network.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F318D9FD4BEFEABDF898F6B8 /* Pods-Virtual Private Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Private Network.release.xcconfig"; path = "Pods/Target Support Files/Pods-Virtual Private Network/Pods-Virtual Private Network.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +234,8 @@
 		042E3DC1205B6AFD0082B18E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				042E3DEE205BAF2D0082B18E /* MyCell.h */,
+				042E3DEF205BAF2D0082B18E /* MyCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +249,8 @@
 				042E3DE5205B9BCF0082B18E /* UIView+Extension.h */,
 				042E3DE6205B9BCF0082B18E /* UIBarButtonItem+addition.h */,
 				042E3DE7205B9BCF0082B18E /* UIView+Extension.m */,
+				042E3DF2205BB2D30082B18E /* CustomLabel.h */,
+				042E3DF1205BB2D20082B18E /* CustomLabel.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -458,6 +468,8 @@
 				042E3DCA205B74830082B18E /* VPTabBarViewController.m in Sources */,
 				042E3DD6205B75300082B18E /* VPAboutUsViewController.m in Sources */,
 				042E3DD9205B755D0082B18E /* VPAgreementViewController.m in Sources */,
+				042E3DF3205BB2D30082B18E /* CustomLabel.m in Sources */,
+				042E3DF0205BAF2D0082B18E /* MyCell.m in Sources */,
 				042E3D91205B68D60082B18E /* ViewController.m in Sources */,
 				042E3DD3205B75100082B18E /* VPMyViewController.m in Sources */,
 				042E3DC4205B6B250082B18E /* RouteLine.m in Sources */,

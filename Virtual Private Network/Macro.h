@@ -28,4 +28,8 @@
 
 #define BOTTOM_HEIGHT (SCREENHEIGHT==812.0 ? 34 : 0)
 
+//颜色
+#define HOMETITLE_COLOR COLOR(51,51,51)
+
+#define LINE_COLOR COLOR(244,244,244)
 #endif /* Macro_h */
