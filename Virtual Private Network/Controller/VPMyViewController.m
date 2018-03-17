@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view addSubview:self.tableView];
 }
 
 - (UITableView *)tableView{
@@ -24,11 +25,12 @@
         _tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
         _tableView.delegate=self;
         _tableView.dataSource=self;
+        _tableView.separatorStyle=NO;
     }
     return _tableView;
 }
 -(NSArray *)dataArray{
-    if (_dataArray) {
+    if (!_dataArray) {
         _dataArray=@[@"Due to the time",@"The terms of service",@"Privacy policy",@"About us"];
     }
     return _dataArray;
@@ -45,7 +47,12 @@
     if (!cell) {
         cell=[[MyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
+    cell.titleLabel.text=_dataArray[indexPath.row];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 44;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

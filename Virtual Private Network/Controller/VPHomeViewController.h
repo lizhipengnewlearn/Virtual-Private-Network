@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CustomLabel.h"
 @interface VPHomeViewController : UIViewController
+@property (nonatomic, strong)UIImageView *backImageView;
+
+@property (nonatomic, strong)UIButton *chooseLineButton;
+
+@property (nonatomic, strong)UIButton *startButton;
+
+@property (nonatomic, strong)CustomLabel *countryNameLabel;
+
+@property (nonatomic, strong)UIImageView *countryImageView;
+
+@property (nonatomic, strong)UIButton *leftButton;
+
+@property (nonatomic, strong)UIButton *rightButton;
+
 
 @end

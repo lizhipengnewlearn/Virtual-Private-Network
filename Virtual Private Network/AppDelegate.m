@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "VPTabBarViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [AVOSCloud setApplicationId:@"QBPnwANUfnHUd2BSM6aokWeW-gzGzoHsz" clientKey:@"Mfzbk4Wu2pSlJCy9UyQzEPmY"];
+    self.window.backgroundColor=[UIColor whiteColor];
+    self.window.rootViewController=[VPTabBarViewController shareInstance];
     return YES;
 }
 
