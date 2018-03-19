@@ -16,6 +16,7 @@
 		04082BC1205FB112006A34C7 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 04082BC0205FB112006A34C7 /* MBProgressHUD+Add.m */; };
 		04082BC4205FBE0E006A34C7 /* LoginHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04082BC3205FBE0E006A34C7 /* LoginHeadView.m */; };
 		04082BC7205FC8F3006A34C7 /* MyHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04082BC6205FC8F3006A34C7 /* MyHeadView.m */; };
+		04082BCA205FCEAC006A34C7 /* DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04082BC9205FCEAC006A34C7 /* DateManager.m */; };
 		042E3D8E205B68D60082B18E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3D8D205B68D60082B18E /* AppDelegate.m */; };
 		042E3D91205B68D60082B18E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3D90205B68D60082B18E /* ViewController.m */; };
 		042E3D94205B68D60082B18E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042E3D92205B68D60082B18E /* Main.storyboard */; };
@@ -79,6 +80,9 @@
 		04082BC3205FBE0E006A34C7 /* LoginHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginHeadView.m; sourceTree = "<group>"; };
 		04082BC5205FC8F2006A34C7 /* MyHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHeadView.h; sourceTree = "<group>"; };
 		04082BC6205FC8F3006A34C7 /* MyHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHeadView.m; sourceTree = "<group>"; };
+		04082BC8205FCEAC006A34C7 /* DateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateManager.h; sourceTree = "<group>"; };
+		04082BC9205FCEAC006A34C7 /* DateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateManager.m; sourceTree = "<group>"; };
+		04082BCD205FD8C1006A34C7 /* Virtual Private Network.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Virtual Private Network.entitlements"; sourceTree = "<group>"; };
 		042E3D89205B68D60082B18E /* Virtual Private Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Private Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		042E3D8C205B68D60082B18E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		042E3D8D205B68D60082B18E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 		042E3D8B205B68D60082B18E /* Virtual Private Network */ = {
 			isa = PBXGroup;
 			children = (
+				04082BCD205FD8C1006A34C7 /* Virtual Private Network.entitlements */,
 				042E3DE3205B9BCF0082B18E /* Category */,
 				042E3DC1205B6AFD0082B18E /* View */,
 				042E3DC0205B6AEB0082B18E /* Model */,
@@ -302,6 +307,8 @@
 				042E3DE7205B9BCF0082B18E /* UIView+Extension.m */,
 				042E3DF2205BB2D30082B18E /* CustomLabel.h */,
 				042E3DF1205BB2D20082B18E /* CustomLabel.m */,
+				04082BC8205FCEAC006A34C7 /* DateManager.h */,
+				04082BC9205FCEAC006A34C7 /* DateManager.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -394,6 +401,14 @@
 					042E3D88205B68D60082B18E = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 0;
+							};
+							com.apple.VPNLite = {
+								enabled = 0;
+							};
+						};
 					};
 					042E3DA0205B68D70082B18E = {
 						CreatedOnToolsVersion = 9.0.1;
@@ -524,6 +539,7 @@
 				042E3DD6205B75300082B18E /* VPAboutUsViewController.m in Sources */,
 				04082BC7205FC8F3006A34C7 /* MyHeadView.m in Sources */,
 				042E3DD9205B755D0082B18E /* VPAgreementViewController.m in Sources */,
+				04082BCA205FCEAC006A34C7 /* DateManager.m in Sources */,
 				042E3DF3205BB2D30082B18E /* CustomLabel.m in Sources */,
 				04082BBB205F9A17006A34C7 /* VPLoginViewController.m in Sources */,
 				042E3DF0205BAF2D0082B18E /* MyCell.m in Sources */,

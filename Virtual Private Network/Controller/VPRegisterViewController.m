@@ -100,6 +100,10 @@
             [[NSNotificationCenter defaultCenter]postNotificationName:loginSuccess object:nil];
             [self performSelector:@selector(dismissLastView) withObject:self afterDelay:0.5];
         }
+        else
+        {
+            [MBProgressHUD showError:@"register failed" toView:self.view];
+        }
     }];
 }
 - (void)dismissLastView{

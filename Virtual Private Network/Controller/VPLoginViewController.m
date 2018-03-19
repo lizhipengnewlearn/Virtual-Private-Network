@@ -26,6 +26,7 @@
     [self.view addSubview:self.registerButton];
     [self.view addSubview:self.informationLabel];
     [self.view addSubview:self.secondInformatinLabel];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backButtonClick) name:loginSuccess object:nil];
 }
 - (UIButton *)backButton{
     if (!_backButton) {
@@ -38,15 +39,9 @@
 - (void)backButtonClick{
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    if ([AVUser currentUser]) {
-        [self backButtonClick];
-    }
-}
+
 - (UITextField *)usernameTextFiled{
     if (!_usernameTextFiled) {
         _usernameTextFiled=[[UITextField alloc]initWithFrame:CGRectMake(15, 143, SCREEN_WIDTH-30, 53)];

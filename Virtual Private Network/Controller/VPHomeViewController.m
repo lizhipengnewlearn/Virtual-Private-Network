@@ -8,8 +8,12 @@
 
 #import "VPHomeViewController.h"
 #import "VPSelectRouteViewController.h"
+#import <NetworkExtension/NetworkExtension.h>
+#import "MBProgressHUD+Add.h"
 @interface VPHomeViewController ()
-
+{
+    NSString *ipAddress;
+}
 @end
 
 @implementation VPHomeViewController
@@ -56,13 +60,15 @@
 
 -(CustomLabel *)countryNameLabel{
     if (!_countryNameLabel) {
-        _countryNameLabel=[[CustomLabel alloc]initWithFrame:CGRectMake(0, _countryImageView.frame.size.height+_countryNameLabel.frame.origin.y+23, SCREEN_WIDTH, 25) andTextColor:[UIColor whiteColor] andSize:25];
+        _countryNameLabel=[[CustomLabel alloc]initWithFrame:CGRectMake(0, _countryImageView.frame.size.height+_countryImageView.frame.origin.y+23, SCREEN_WIDTH, 25) andTextColor:[UIColor whiteColor] andSize:25];
+        _countryNameLabel.textAlignment=NSTextAlignmentCenter;
     }
     return _countryNameLabel;
 }
 - (UIButton *)leftButton{
     if (!_leftButton) {
         _leftButton=[[UIButton alloc]initWithFrame:CGRectMake(_countryImageView.frame.origin.x-35, _countryImageView.frame.origin.y+26, 20, 20)];
+        [_leftButton setBackgroundImage:[UIImage imageNamed:@"左"] forState:UIControlStateNormal];
         [_leftButton addTarget:self action:@selector(chooseRoutLine) forControlEvents:UIControlEventTouchUpInside];
     }
     return _leftButton;
@@ -70,7 +76,8 @@
 
 -(UIButton *)rightButton{
     if (!_rightButton) {
-        _rightButton=[[UIButton alloc]initWithFrame:CGRectMake(_countryImageView.frame.origin.x+_countryImageView.frame.size.width+35, _leftButton.frame.origin.y, 20, 20)];
+        _rightButton=[[UIButton alloc]initWithFrame:CGRectMake(_countryImageView.frame.origin.x+_countryImageView.frame.size.width+15, _leftButton.frame.origin.y, 20, 20)];
+        [_rightButton setBackgroundImage:[UIImage imageNamed:@"右"] forState:UIControlStateNormal];
         [_rightButton addTarget:self action:@selector(chooseRoutLine) forControlEvents:UIControlEventTouchUpInside];
 
     }
@@ -87,12 +94,106 @@
 
 #pragma mark 开始连接
 - (void)startConnct{
-    
+    if (_countryNameLabel.text.length==0) {
+        [MBProgressHUD showError:@"please select a route" toView:self.view];
+        return;
+    }
+    NEVPNManager *manager = [NEVPNManager sharedManager];
+    [manager loadFromPreferencesWithCompletionHandler:^(NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"%@",error);
+        }
+        else
+        {
+            NEVPNProtocolIKEv2* ikev = [[NEVPNProtocolIKEv2 alloc] init];
+            ikev.certificateType = NEVPNIKEv2CertificateTypeRSA;
+            ikev.authenticationMethod = NEVPNIKEAuthenticationMethodCertificate;
+            ikev.useExtendedAuthentication = YES;
+            
+            ikev.username = @"huzhe";
+            ikev.passwordReference = [self searchKeychainCopyMatching:@"VPN_PASSWORD"];
+            ikev.serverAddress = ipAddress;
+            ikev.remoteIdentifier = ipAddress;
+//            ikev.identityReference =  使用iOS钥匙串(keyChain)存入的identity;
+            
+            [manager setEnabled:YES];
+            [manager setProtocol:ikev];
+            [manager setOnDemandEnabled:NO];
+            [manager setLocalizedDescription:@"MyVPN"];
+            [manager saveToPreferencesWithCompletionHandler:^(NSError * _Nullable error) {
+                if(error) {
+                    NSLog(@"Save error: %@", error);
+                }
+                else {
+                    NSLog(@"Saved!");
+                }
+            }];
+        }
+    }];
+    NSError *startError;
+    [[NEVPNManager sharedManager].connection startVPNTunnelAndReturnError:&startError];
+    [[NEVPNManager sharedManager] loadFromPreferencesWithCompletionHandler:^(NSError * _Nullable error) {
+        if(error)
+        {
+            NSLog(@"VPN load error->%@", error);
+        }
+        else
+        {
+            NSError *startError;
+            [[NEVPNManager sharedManager].connection startVPNTunnelAndReturnError:&startError];
+            
+            if(startError) {
+                NSLog(@"Start error: %@", startError.localizedDescription);
+            } else {
+                NSLog(@"Connection established!");
+            }
+        }
+    }];
+}
+#pragma mark - KeyChain
+static NSString * const serviceName = @"im.zorro.ipsec_demo.vpn_config";
+- (NSMutableDictionary *)newSearchDictionary:(NSString *)identifier {
+    NSMutableDictionary *searchDictionary = [[NSMutableDictionary alloc] init];
+    [searchDictionary setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
+    NSData *encodedIdentifier = [identifier dataUsingEncoding:NSUTF8StringEncoding];
+    [searchDictionary setObject:encodedIdentifier forKey:(__bridge id)kSecAttrGeneric];
+    [searchDictionary setObject:encodedIdentifier forKey:(__bridge id)kSecAttrAccount];
+    [searchDictionary setObject:serviceName forKey:(__bridge id)kSecAttrService];
+    return searchDictionary;
+}
+- (NSData *)searchKeychainCopyMatching:(NSString *)identifier {
+    NSMutableDictionary *searchDictionary = [self newSearchDictionary:identifier];
+    // Add search attributes
+    [searchDictionary setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
+    // Add search return types
+    // Must be persistent ref !!!!
+    [searchDictionary setObject:@YES forKey:(__bridge id)kSecReturnPersistentRef];
+    CFTypeRef result = NULL;
+    SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, &result);
+    return (__bridge_transfer NSData *)result;
+}
+- (BOOL)createKeychainValue:(NSString *)password forIdentifier:(NSString *)identifier {
+    NSMutableDictionary *dictionary = [self newSearchDictionary:identifier];
+    OSStatus status = SecItemDelete((__bridge CFDictionaryRef)dictionary);
+    NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
+    [dictionary setObject:passwordData forKey:(__bridge id)kSecValueData];
+    status = SecItemAdd((__bridge CFDictionaryRef)dictionary, NULL);
+    if (status == errSecSuccess) {
+        return YES;
+    }
+    return NO;
 }
 #pragma mark 选择线路
 -(void)chooseRoutLine{
     VPSelectRouteViewController *selectRout=[[VPSelectRouteViewController alloc]init];
+    [selectRout setSelectRouteBlock:^(RouteLine *routLineModel) {
+       _countryNameLabel.text=routLineModel.countryName;
+        [_countryImageView setImageWithURL:[NSURL URLWithString:routLineModel.homeCountryImageFile.url] options:YYWebImageOptionSetImageWithFadeAnimation];
+        _chooseLineButton.hidden=YES;
+        ipAddress=routLineModel.vpnIp;
+    }];
     selectRout.hidesBottomBarWhenPushed=YES;
+    
     [self.navigationController pushViewController:selectRout animated:YES];
     
 }

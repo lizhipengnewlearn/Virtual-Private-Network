@@ -10,6 +10,8 @@
 #import "RouteLine.h"
 #import "RoutLineCell.h"
 #import "PurchaseOrder.h"
+#import "DateManager.h"
+#import "VPLoginViewController.h"
 @interface VPSelectRouteViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -60,42 +62,56 @@
     if (!cell) {
         cell=[[RoutLineCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
+    cell.selectionStyle=NO;
     RouteLine *routlineModel=_dataArray[indexPath.row];
     [cell setcontentWithModel:routlineModel];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if ([AVUser currentUser])
-    {
-        if([AVUser currentUser])
-        {
-            AVQuery *query=[AVQuery queryWithClassName:@"PurchaseOrder"];
-            [query whereKey:@"user" equalTo:[AVUser currentUser]];
-            PurchaseOrder *object=[[PurchaseOrder alloc]init];
-            [object setObject:[NSDate date] forKey:@"beginDate"];
-            [object saveEventually:^(BOOL succeeded, NSError * _Nullable error) {
-                
-            }];
-//            [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-//
-//                PurchaseOrder *purchaseOrder=objects[0];
-//                NSString *endDateString=[NSString stringWithFormat:@"%@",purchaseOrder.benginDate];
-//                NSString *nowDateString=[NSString stringWithFormat:@"%@",[NSDate date]];
-//
-//            }];
-        }
-        else
-        {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"This line is VIP line, please purchase VIP to try to connect" delegate:self cancelButtonTitle:@"Try later" otherButtonTitles:@"Buy now", nil];
-            [alertView show];
-        }
+    if (self.selectRouteBlock!=nil) {
+        self.selectRouteBlock(_dataArray[indexPath.row]);
     }
-else
-{
+    [self.navigationController popViewControllerAnimated:YES];
+//    if ([AVUser currentUser])
+//    {
+//            AVQuery *query=[AVQuery queryWithClassName:@"PurchaseOrder"];
+//            [query whereKey:@"user" equalTo:[AVUser currentUser]];
+//            [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+//                if (objects.count>0) {
+//                    PurchaseOrder *purchOrder=objects[0];
+//                    NSString *endDateString=[DateManager stringFromDate:purchOrder.endDate];
+//                    NSString *nowDateString=[DateManager stringFromDate:[NSDate date]];
+//                    if ([self firstString:endDateString andSecondString:nowDateString]==YES) {//会员未到期
+//                        if (self.selectRouteBlock!=nil) {
+//                            self.selectRouteBlock(_dataArray[indexPath.row]);
+//                        }
+//                    }
+//                }
+//                else
+//                {
+//                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"This line is VIP line, please purchase VIP to try to connect" delegate:self cancelButtonTitle:@"Try later" otherButtonTitles:@"Buy now", nil];
+//                    [alertView show];
+//                }
+//            }];
+//    }
+//    else
+//    {
+//        VPLoginViewController *loginView=[[VPLoginViewController alloc]init];
+//        [self presentViewController:loginView animated:YES completion:nil];
+//    }
     
 }
-    
+-(BOOL)firstString:(NSString *)firstString andSecondString:(NSString*)secondString{
+    int result=[firstString compare:secondString];
+    if(result==NSOrderedDescending)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 - (void)returnRouteName:(SelectRouteBlock)block{
     self.selectRouteBlock = block;
