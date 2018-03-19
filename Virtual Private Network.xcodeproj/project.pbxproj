@@ -31,6 +31,8 @@
 		042E3DEC205B9C850082B18E /* UINavigationBar+alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DEB205B9C850082B18E /* UINavigationBar+alpha.m */; };
 		042E3DF0205BAF2D0082B18E /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DEF205BAF2D0082B18E /* MyCell.m */; };
 		042E3DF3205BB2D30082B18E /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DF1205BB2D20082B18E /* CustomLabel.m */; };
+		04FBB603205D03A8001F2911 /* VPSelectRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FBB602205D03A8001F2911 /* VPSelectRouteViewController.m */; };
+		04FBB606205D0705001F2911 /* RoutLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FBB605205D0705001F2911 /* RoutLineCell.m */; };
 		D022409735005DF6D77FC1DC /* libPods-Virtual Private Network.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A20EF261F11D61A138C00D76 /* libPods-Virtual Private Network.a */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,10 @@
 		042E3DEF205BAF2D0082B18E /* MyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
 		042E3DF1205BB2D20082B18E /* CustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabel.m; sourceTree = "<group>"; };
 		042E3DF2205BB2D30082B18E /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
+		04FBB601205D03A8001F2911 /* VPSelectRouteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPSelectRouteViewController.h; sourceTree = "<group>"; };
+		04FBB602205D03A8001F2911 /* VPSelectRouteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPSelectRouteViewController.m; sourceTree = "<group>"; };
+		04FBB604205D0705001F2911 /* RoutLineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutLineCell.h; sourceTree = "<group>"; };
+		04FBB605205D0705001F2911 /* RoutLineCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutLineCell.m; sourceTree = "<group>"; };
 		8EB3A622CCB19CD66EF78675 /* Pods-Virtual Private Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Private Network.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Virtual Private Network/Pods-Virtual Private Network.debug.xcconfig"; sourceTree = "<group>"; };
 		A20EF261F11D61A138C00D76 /* libPods-Virtual Private Network.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Virtual Private Network.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F318D9FD4BEFEABDF898F6B8 /* Pods-Virtual Private Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Private Network.release.xcconfig"; path = "Pods/Target Support Files/Pods-Virtual Private Network/Pods-Virtual Private Network.release.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +210,8 @@
 				042E3DCC205B74B60082B18E /* VPHomeViewController.m */,
 				042E3DCE205B75050082B18E /* VPMemberViewController.h */,
 				042E3DCF205B75050082B18E /* VPMemberViewController.m */,
+				04FBB601205D03A8001F2911 /* VPSelectRouteViewController.h */,
+				04FBB602205D03A8001F2911 /* VPSelectRouteViewController.m */,
 				042E3DD1205B75100082B18E /* VPMyViewController.h */,
 				042E3DD2205B75100082B18E /* VPMyViewController.m */,
 				042E3DD4205B75300082B18E /* VPAboutUsViewController.h */,
@@ -236,6 +244,8 @@
 			children = (
 				042E3DEE205BAF2D0082B18E /* MyCell.h */,
 				042E3DEF205BAF2D0082B18E /* MyCell.m */,
+				04FBB604205D0705001F2911 /* RoutLineCell.h */,
+				04FBB605205D0705001F2911 /* RoutLineCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -463,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04FBB606205D0705001F2911 /* RoutLineCell.m in Sources */,
 				042E3DD0205B75050082B18E /* VPMemberViewController.m in Sources */,
 				042E3DDC205B766A0082B18E /* VPBaseViewController.m in Sources */,
 				042E3DCA205B74830082B18E /* VPTabBarViewController.m in Sources */,
@@ -475,6 +486,7 @@
 				042E3DC4205B6B250082B18E /* RouteLine.m in Sources */,
 				042E3DDF205B982C0082B18E /* VPBaseNavigationController.m in Sources */,
 				042E3DCD205B74B60082B18E /* VPHomeViewController.m in Sources */,
+				04FBB603205D03A8001F2911 /* VPSelectRouteViewController.m in Sources */,
 				042E3DEC205B9C850082B18E /* UINavigationBar+alpha.m in Sources */,
 				042E3D9C205B68D60082B18E /* main.m in Sources */,
 				042E3D8E205B68D60082B18E /* AppDelegate.m in Sources */,

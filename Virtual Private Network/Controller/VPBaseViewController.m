@@ -7,7 +7,7 @@
 //
 
 #import "VPBaseViewController.h"
-
+#import "CustomLabel.h"
 @interface VPBaseViewController ()
 
 @end
@@ -16,9 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UILabel *titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 40)];
-    titleLabel.text=self.titleString;
-    self.navigationItem.titleView=titleLabel;
+  
+    self.edgesForExtendedLayout=UIRectEdgeNone;
     
     if (@available(ios 11.0,*)) {
         UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -31,6 +30,12 @@
             self.automaticallyAdjustsScrollViewInsets=NO;
         }
     }
+}
+- (void)setTitleString:(NSString *)titleString{
+    CustomLabel *titleLabel=[[CustomLabel alloc]initWithFrame:CGRectMake(0, 0, 100, 40)andTextColor:HOMETITLE_COLOR andSize:TITLE_SIZE];
+    titleLabel.textAlignment=NSTextAlignmentCenter;
+    titleLabel.text=titleString;
+    self.navigationItem.titleView=titleLabel;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

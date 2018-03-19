@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomLabel.h"
-@interface VPHomeViewController : UIViewController
+#import "VPBaseViewController.h"
+@interface VPHomeViewController : VPBaseViewController
 @property (nonatomic, strong)UIImageView *backImageView;
 
 @property (nonatomic, strong)UIButton *chooseLineButton;

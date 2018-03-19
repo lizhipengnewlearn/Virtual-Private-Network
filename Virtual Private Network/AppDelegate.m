@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "VPTabBarViewController.h"
+#import "RouteLine.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [AVOSCloud setApplicationId:@"QBPnwANUfnHUd2BSM6aokWeW-gzGzoHsz" clientKey:@"Mfzbk4Wu2pSlJCy9UyQzEPmY"];
+    [RouteLine registerSubclass];
     self.window.backgroundColor=[UIColor whiteColor];
     self.window.rootViewController=[VPTabBarViewController shareInstance];
     return YES;
