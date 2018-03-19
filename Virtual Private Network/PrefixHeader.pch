@@ -23,6 +23,8 @@
 #import "UIBarButtonItem+addition.h"
 #import "UINavigationBar+alpha.h"
 #import "Macro.h"
+#import "NSString+Size.h"
+#import <MBProgressHUD.h>
 
 #endif
 

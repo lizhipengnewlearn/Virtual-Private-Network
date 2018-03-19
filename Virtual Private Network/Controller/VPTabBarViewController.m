@@ -27,7 +27,7 @@ static VPTabBarViewController* _instance=nil;
     [self makerootViewcontroller:self.homeView andTitle:@"" andImage:@"首页未选" andSelectImage:@"首页已选"];
     [self makerootViewcontroller:self.memberView andTitle:@"" andImage:@"购买未选" andSelectImage:@"购买已选"];
     [self makerootViewcontroller:self.myView andTitle:@"" andImage:@"我的未选" andSelectImage:@"我的已选"];
-    
+
 }
 
 -(VPHomeViewController *)homeView{

@@ -1,0 +1,66 @@
+Last updated: November 14, 2017
+
+Subscription information
+  In-app purchases are not automatically renewed.
+
+  The package is $2.99 for 7 days and $4.99 for 1 month package. $10.99 for 3-month package; $25.99 for one year package.
+
+  * after confirmation of purchase, payment can be made to the iTunes account.
+
+  * the current subscription cannot be cancelled while the subscription is active.
+
+  * if the user buys a subscription plan within the time limit of the free trial package (if available), the unused portion of the time limit will be invalid.
+
+  * when the subscription is due, it will be repurchased if necessary.\
+
+Definitions
+  In this Agreement, “Application” refers to the application developed by us entitled “Windly vpn”.
+
+  Unless the context requires otherwise, a reference to the “Application” includes all modifications, enhancements or updates thereto, and includes all associated printed, online or electronic documentation and instructions relating to it.
+
+  The Terms and Conditions agreement can act as a legal contract between us, the Windly vpn and you, the users of Windly vpn service.
+
+  Please read the following Terms of Service ("Terms", "Terms of Service") carefully before using the Virtual Private Network (“VPN”) operated by Windly vpn ("us", "we", or "our")
+
+  Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.
+
+  By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service.
+
+The Terms of Service
+  Windly vpn provides the Service as a means of protecting your privacy by establishing a secure Virtual Private Network (“VPN”) when connecting to the Internet.
+
+The Privacy Policy
+  Windly vpn respects and protects all users’ private privacy; we will never and shall not have the right to disclosure your information to the third parties for any purposes without users’ permission.
+
+Free & Subscriptions
+  Some parts of the Service are billed on a subscription basis ("Subscription(s)"). You will be billed in advance on a recurring.
+
+  The Subscription section is for Windly vpn business.
+
+Service Support
+  We are very concerned about our user's product experience when using Windly vpn. For any problems about it, please feel free to tell us. We will reply and solve for you immediately.
+
+Install & Updates
+  We have the right to install certificates and future updates at any time without any notice.
+
+Security Measures
+  Windly vpn keeps no logs which enable interference with your IP address, the moment or content of your data traffic. We make express reference to the fact that we do not record in logs communication contents or data regarding the accessed websites or the IP addresses.
+
+Changes
+  We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.
+
+  We may change our terms at any time and from time to time. The most recent version of the terms is reflected by the version date located at the top of this agreement. All updates and amendments are effective immediately after updates. We encourage you to review our terms often to stay informed of changes that may affect you, as your continued use of the application signifies your continuing consent to be bound by our terms.
+
+Termination
+  We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
+
+  All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.
+
+Governing Law
+  These Terms shall be governed and construed in accordance with the laws of China, without regard to its conflict of law provisions.
+
+  Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have between us regarding the Service.
+
+Contact Us
+  If you have any questions about these Terms, please contact us at: service.aresmob@gmail.com
+

@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "VPBaseViewController.h"
+#import "MyHeadView.h"
+#import "LoginHeadView.h"
 @interface VPMyViewController : VPBaseViewController
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)NSArray *dataArray;
+@property (nonatomic,strong)MyHeadView *myHeadView;
+@property (nonatomic, strong)LoginHeadView *loginHeadView;
 @end

@@ -106,7 +106,7 @@
                 
             }
         }else{
-            viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigator_btn_back" highIcon:@"" target:self action:@selector(back:)];
+            viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"" highIcon:@"" target:self action:@selector(back:)];
         }
         
     }else{

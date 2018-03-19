@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04082BAE205F8613006A34C7 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 04082BAD205F8613006A34C7 /* NSString+Size.m */; };
+		04082BB4205F8707006A34C7 /* UILabel+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04082BB3205F8707006A34C7 /* UILabel+Utils.m */; };
+		04082BB6205F8D2A006A34C7 /* 服务.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04082BB5205F8D2A006A34C7 /* 服务.txt */; };
+		04082BB8205F8F76006A34C7 /* 隐私.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04082BB7205F8F76006A34C7 /* 隐私.txt */; };
+		04082BBB205F9A17006A34C7 /* VPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04082BBA205F9A17006A34C7 /* VPLoginViewController.m */; };
+		04082BBE205FA88E006A34C7 /* VPRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04082BBD205FA88E006A34C7 /* VPRegisterViewController.m */; };
+		04082BC1205FB112006A34C7 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 04082BC0205FB112006A34C7 /* MBProgressHUD+Add.m */; };
+		04082BC4205FBE0E006A34C7 /* LoginHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04082BC3205FBE0E006A34C7 /* LoginHeadView.m */; };
+		04082BC7205FC8F3006A34C7 /* MyHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04082BC6205FC8F3006A34C7 /* MyHeadView.m */; };
 		042E3D8E205B68D60082B18E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3D8D205B68D60082B18E /* AppDelegate.m */; };
 		042E3D91205B68D60082B18E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3D90205B68D60082B18E /* ViewController.m */; };
 		042E3D94205B68D60082B18E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042E3D92205B68D60082B18E /* Main.storyboard */; };
@@ -54,6 +63,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04082BAC205F8613006A34C7 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
+		04082BAD205F8613006A34C7 /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
+		04082BB2205F8706006A34C7 /* UILabel+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Utils.h"; sourceTree = "<group>"; };
+		04082BB3205F8707006A34C7 /* UILabel+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Utils.m"; sourceTree = "<group>"; };
+		04082BB5205F8D2A006A34C7 /* 服务.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "服务.txt"; sourceTree = "<group>"; };
+		04082BB7205F8F76006A34C7 /* 隐私.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "隐私.txt"; sourceTree = "<group>"; };
+		04082BB9205F9A17006A34C7 /* VPLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPLoginViewController.h; sourceTree = "<group>"; };
+		04082BBA205F9A17006A34C7 /* VPLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPLoginViewController.m; sourceTree = "<group>"; };
+		04082BBC205FA88E006A34C7 /* VPRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPRegisterViewController.h; sourceTree = "<group>"; };
+		04082BBD205FA88E006A34C7 /* VPRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPRegisterViewController.m; sourceTree = "<group>"; };
+		04082BBF205FB112006A34C7 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
+		04082BC0205FB112006A34C7 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
+		04082BC2205FBE0E006A34C7 /* LoginHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginHeadView.h; sourceTree = "<group>"; };
+		04082BC3205FBE0E006A34C7 /* LoginHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginHeadView.m; sourceTree = "<group>"; };
+		04082BC5205FC8F2006A34C7 /* MyHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHeadView.h; sourceTree = "<group>"; };
+		04082BC6205FC8F3006A34C7 /* MyHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHeadView.m; sourceTree = "<group>"; };
 		042E3D89205B68D60082B18E /* Virtual Private Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Private Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		042E3D8C205B68D60082B18E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		042E3D8D205B68D60082B18E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -179,6 +204,8 @@
 				042E3D9B205B68D60082B18E /* main.m */,
 				042E3DBE205B69E00082B18E /* PrefixHeader.pch */,
 				042E3DED205BA3100082B18E /* Macro.h */,
+				04082BB5205F8D2A006A34C7 /* 服务.txt */,
+				04082BB7205F8F76006A34C7 /* 隐私.txt */,
 			);
 			path = "Virtual Private Network";
 			sourceTree = "<group>";
@@ -224,6 +251,10 @@
 				042E3DDE205B982C0082B18E /* VPBaseNavigationController.m */,
 				042E3DE1205B99ED0082B18E /* UIViewController+PopBlock.h */,
 				042E3DE0205B99EC0082B18E /* UIViewController+PopBlock.m */,
+				04082BB9205F9A17006A34C7 /* VPLoginViewController.h */,
+				04082BBA205F9A17006A34C7 /* VPLoginViewController.m */,
+				04082BBC205FA88E006A34C7 /* VPRegisterViewController.h */,
+				04082BBD205FA88E006A34C7 /* VPRegisterViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -242,10 +273,14 @@
 		042E3DC1205B6AFD0082B18E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04082BC5205FC8F2006A34C7 /* MyHeadView.h */,
+				04082BC6205FC8F3006A34C7 /* MyHeadView.m */,
 				042E3DEE205BAF2D0082B18E /* MyCell.h */,
 				042E3DEF205BAF2D0082B18E /* MyCell.m */,
 				04FBB604205D0705001F2911 /* RoutLineCell.h */,
 				04FBB605205D0705001F2911 /* RoutLineCell.m */,
+				04082BC2205FBE0E006A34C7 /* LoginHeadView.h */,
+				04082BC3205FBE0E006A34C7 /* LoginHeadView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -253,6 +288,12 @@
 		042E3DE3205B9BCF0082B18E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				04082BBF205FB112006A34C7 /* MBProgressHUD+Add.h */,
+				04082BC0205FB112006A34C7 /* MBProgressHUD+Add.m */,
+				04082BB2205F8706006A34C7 /* UILabel+Utils.h */,
+				04082BB3205F8707006A34C7 /* UILabel+Utils.m */,
+				04082BAC205F8613006A34C7 /* NSString+Size.h */,
+				04082BAD205F8613006A34C7 /* NSString+Size.m */,
 				042E3DEA205B9C850082B18E /* UINavigationBar+alpha.h */,
 				042E3DEB205B9C850082B18E /* UINavigationBar+alpha.m */,
 				042E3DE4205B9BCF0082B18E /* UIBarButtonItem+addition.m */,
@@ -391,8 +432,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04082BB8205F8F76006A34C7 /* 隐私.txt in Resources */,
 				042E3D99205B68D60082B18E /* LaunchScreen.storyboard in Resources */,
 				042E3D96205B68D60082B18E /* Assets.xcassets in Resources */,
+				04082BB6205F8D2A006A34C7 /* 服务.txt in Resources */,
 				042E3D94205B68D60082B18E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,23 +516,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04082BC4205FBE0E006A34C7 /* LoginHeadView.m in Sources */,
 				04FBB606205D0705001F2911 /* RoutLineCell.m in Sources */,
 				042E3DD0205B75050082B18E /* VPMemberViewController.m in Sources */,
 				042E3DDC205B766A0082B18E /* VPBaseViewController.m in Sources */,
 				042E3DCA205B74830082B18E /* VPTabBarViewController.m in Sources */,
 				042E3DD6205B75300082B18E /* VPAboutUsViewController.m in Sources */,
+				04082BC7205FC8F3006A34C7 /* MyHeadView.m in Sources */,
 				042E3DD9205B755D0082B18E /* VPAgreementViewController.m in Sources */,
 				042E3DF3205BB2D30082B18E /* CustomLabel.m in Sources */,
+				04082BBB205F9A17006A34C7 /* VPLoginViewController.m in Sources */,
 				042E3DF0205BAF2D0082B18E /* MyCell.m in Sources */,
 				042E3D91205B68D60082B18E /* ViewController.m in Sources */,
 				042E3DD3205B75100082B18E /* VPMyViewController.m in Sources */,
 				042E3DC4205B6B250082B18E /* RouteLine.m in Sources */,
+				04082BB4205F8707006A34C7 /* UILabel+Utils.m in Sources */,
 				042E3DDF205B982C0082B18E /* VPBaseNavigationController.m in Sources */,
 				042E3DCD205B74B60082B18E /* VPHomeViewController.m in Sources */,
+				04082BAE205F8613006A34C7 /* NSString+Size.m in Sources */,
 				04FBB603205D03A8001F2911 /* VPSelectRouteViewController.m in Sources */,
 				042E3DEC205B9C850082B18E /* UINavigationBar+alpha.m in Sources */,
+				04082BBE205FA88E006A34C7 /* VPRegisterViewController.m in Sources */,
 				042E3D9C205B68D60082B18E /* main.m in Sources */,
 				042E3D8E205B68D60082B18E /* AppDelegate.m in Sources */,
+				04082BC1205FB112006A34C7 /* MBProgressHUD+Add.m in Sources */,
 				042E3DE2205B99ED0082B18E /* UIViewController+PopBlock.m in Sources */,
 				042E3DC7205B72EF0082B18E /* PurchaseOrder.m in Sources */,
 				042E3DE9205B9BD00082B18E /* UIView+Extension.m in Sources */,

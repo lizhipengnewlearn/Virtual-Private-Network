@@ -18,6 +18,7 @@
     [super viewDidLoad];
   
     self.edgesForExtendedLayout=UIRectEdgeNone;
+    self.view.backgroundColor=[UIColor whiteColor];
     
     if (@available(ios 11.0,*)) {
         UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -31,6 +32,7 @@
         }
     }
 }
+
 - (void)setTitleString:(NSString *)titleString{
     CustomLabel *titleLabel=[[CustomLabel alloc]initWithFrame:CGRectMake(0, 0, 100, 40)andTextColor:HOMETITLE_COLOR andSize:TITLE_SIZE];
     titleLabel.textAlignment=NSTextAlignmentCenter;
@@ -47,7 +49,7 @@
 }
 
 -(NSString *)backItemImageName{
-    return @"navigator_btn_back";
+    return @"返回";
 }
 
 - (void)didReceiveMemoryWarning {

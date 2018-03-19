@@ -9,6 +9,7 @@
 #import "VPSelectRouteViewController.h"
 #import "RouteLine.h"
 #import "RoutLineCell.h"
+#import "PurchaseOrder.h"
 @interface VPSelectRouteViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -24,9 +25,11 @@
 }
 - (void)loadData{
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     AVQuery *query=[AVQuery queryWithClassName:@"RouteLine"];
     [query orderByDescending:@"order"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         self.dataArray=[NSMutableArray arrayWithArray:objects];
         [self.tableView reloadData];
     }];
@@ -65,17 +68,28 @@
     
     if ([AVUser currentUser])
     {
-        
         if([AVUser currentUser])
         {
-            
+            AVQuery *query=[AVQuery queryWithClassName:@"PurchaseOrder"];
+            [query whereKey:@"user" equalTo:[AVUser currentUser]];
+            PurchaseOrder *object=[[PurchaseOrder alloc]init];
+            [object setObject:[NSDate date] forKey:@"beginDate"];
+            [object saveEventually:^(BOOL succeeded, NSError * _Nullable error) {
+                
+            }];
+//            [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+//
+//                PurchaseOrder *purchaseOrder=objects[0];
+//                NSString *endDateString=[NSString stringWithFormat:@"%@",purchaseOrder.benginDate];
+//                NSString *nowDateString=[NSString stringWithFormat:@"%@",[NSDate date]];
+//
+//            }];
         }
         else
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"This line is VIP line, please purchase VIP to try to connect" delegate:self cancelButtonTitle:@"Try later" otherButtonTitles:@"Buy now", nil];
             [alertView show];
         }
-        
     }
 else
 {
@@ -91,14 +105,5 @@ else
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

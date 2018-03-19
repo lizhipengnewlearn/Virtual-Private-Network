@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-enum{
-    VPAgreementTypePolicy,
-    VPAgreementTypeService,
-}VPAgreementType;
-@interface VPAgreementViewController : UIViewController
-
+#import "VPBaseViewController.h"
+typedef enum {
+    VPAgreementTypePolicy=0,
+    VPAgreementTypeService
+}VPagreementType;
+@interface VPAgreementViewController : VPBaseViewController
+@property (nonatomic, assign)VPagreementType agreementType;
 @end

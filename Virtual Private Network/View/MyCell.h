@@ -13,4 +13,5 @@
 @property(nonatomic, strong)CustomLabel *contentLabel;
 @property(nonatomic, strong)UIImageView *rightImagView;
 @property(nonatomic, strong)UIView *lineView;
+@property(nonatomic, strong)UIView *greenLineView;
 @end

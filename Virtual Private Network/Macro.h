@@ -30,7 +30,10 @@
 
 //颜色
 #define HOMETITLE_COLOR COLOR(51,51,51)
+#define HOMEGREEN_COLOR COLOR(49,205,64)
+
 
 #define LINE_COLOR COLOR(229,229,229)
 #define TITLE_SIZE 16
+#define  loginSuccess @"loginSuccess"
 #endif /* Macro_h */
