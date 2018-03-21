@@ -11,5 +11,7 @@
 @interface DateManager : NSObject
 +(instancetype)shareInstance;
 +(NSString *)stringFromDate:(NSDate *)date;
++(NSString *)stringToDayFromDate:(NSDate *)date;
 
++(BOOL)firstString:(NSString *)firstString andSecondString:(NSString*)secondString;
 @end

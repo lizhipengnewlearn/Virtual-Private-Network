@@ -18,11 +18,29 @@ static DateManager *_datamanager=nil;
     return _datamanager;
 }
 
-+(NSString *)stringFromDate3:(NSDate *)date{
++(NSString *)stringFromDate:(NSDate *)date{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *destDateString = [dateFormatter stringFromDate:date];
     return destDateString;
+}
++(NSString *)stringToDayFromDate:(NSDate *)date{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *destDateString = [dateFormatter stringFromDate:date];
+    return destDateString;
+}
+
++(BOOL)firstString:(NSString *)firstString andSecondString:(NSString*)secondString{
+    int result=[firstString compare:secondString];
+    if(result==NSOrderedDescending)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 @end

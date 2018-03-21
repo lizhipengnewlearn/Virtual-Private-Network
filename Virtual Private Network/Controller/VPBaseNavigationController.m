@@ -24,7 +24,7 @@
         self.navigationBar.titleTextAttributes = attributeDic;
         self.navigationBar.translucent = YES;
         [UINavigationBar appearance].barTintColor = kBarTinColor;
-        
+        [UINavigationBar appearance].backgroundColor=[UIColor clearColor];
     }
     return self;
 }

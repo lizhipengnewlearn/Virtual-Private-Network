@@ -30,16 +30,19 @@
         contentLabel.text=[NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 
     }
-    else
+    else if (self.agreementType==VPAgreementTypePolicy)
     {
         self.titleString=@"Privacy policy";
         NSString *path = [[NSBundle mainBundle] pathForResource:@"隐私" ofType:@".txt"];
         contentLabel.text=[NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-
-       
+    }
+    else
+    {
+        self.titleString=@"Purchase information";
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"购买" ofType:@".txt"];
+        contentLabel.text=[NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     }
      CGSize contentSize =[contentLabel.text sizeWithFont:[UIFont systemFontOfSize:15.0f] constrainedToSize:CGSizeMake(scrollView.frame.size.width, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
-//    float contentHeight = [NSString text:contentLabel.text heightWithFontSize:15 width:scrollView.width lineSpacing:1];
     contentLabel.frame = CGRectMake(0, 50, scrollView.frame.size.width, contentSize.height);
     if (contentLabel.frame.size.height + 50 > scrollView.height)
     {

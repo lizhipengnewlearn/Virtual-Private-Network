@@ -25,6 +25,8 @@
 #import "Macro.h"
 #import "NSString+Size.h"
 #import <MBProgressHUD.h>
+#define ids @[@"com.faceV1", @"com.faceV2", @"com.faceV3", @"com.faceV4"]
+
 
 #endif
 

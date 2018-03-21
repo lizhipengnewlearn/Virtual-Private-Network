@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VPBaseViewController.h"
 
-@interface VPMemberViewController : UIViewController
+@interface VPMemberViewController : VPBaseViewController
 
 @end

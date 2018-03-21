@@ -1,0 +1,7 @@
+
+In-app purchases are not asutomatically renewed.
+The package is $2.99 for 7 days and $4.99 for 1 month package. $10.99 for 3-month package; $25.99 for one year package.
+* after confirmation of purchase, payment can be made to the iTunes account.
+* the current subscription cannot be cancelled while the subscription is active.
+* if the user buys a subscription plan within the time limit of the free trial package (if available), the unused portion of the time limit will be invalid.
+* when the subscription is due, it will be repurchased if necessary.

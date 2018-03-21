@@ -13,6 +13,7 @@
 @interface VPHomeViewController ()
 {
     NSString *ipAddress;
+    NEVPNManager *manager;
 }
 @end
 
@@ -28,6 +29,9 @@
     [self.view addSubview:self.leftButton];
     [self.view addSubview:self.rightButton];
     [self.view addSubview:self.startButton];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(disconnectVPN) name:loginSuccess object:nil];
+    
+    
     
 }
 - (UIButton *)chooseLineButton{
@@ -69,6 +73,7 @@
     if (!_leftButton) {
         _leftButton=[[UIButton alloc]initWithFrame:CGRectMake(_countryImageView.frame.origin.x-35, _countryImageView.frame.origin.y+26, 20, 20)];
         [_leftButton setBackgroundImage:[UIImage imageNamed:@"左"] forState:UIControlStateNormal];
+        _leftButton.hidden=YES;
         [_leftButton addTarget:self action:@selector(chooseRoutLine) forControlEvents:UIControlEventTouchUpInside];
     }
     return _leftButton;
@@ -78,6 +83,7 @@
     if (!_rightButton) {
         _rightButton=[[UIButton alloc]initWithFrame:CGRectMake(_countryImageView.frame.origin.x+_countryImageView.frame.size.width+15, _leftButton.frame.origin.y, 20, 20)];
         [_rightButton setBackgroundImage:[UIImage imageNamed:@"右"] forState:UIControlStateNormal];
+        _rightButton.hidden=YES;
         [_rightButton addTarget:self action:@selector(chooseRoutLine) forControlEvents:UIControlEventTouchUpInside];
 
     }
@@ -94,61 +100,115 @@
 
 #pragma mark 开始连接
 - (void)startConnct{
-    if (_countryNameLabel.text.length==0) {
-        [MBProgressHUD showError:@"please select a route" toView:self.view];
-        return;
+
+   if([NEVPNManager sharedManager].connection.status==NEVPNStatusConnected){
+        [self disconnectVPN];
     }
-    NEVPNManager *manager = [NEVPNManager sharedManager];
-    [manager loadFromPreferencesWithCompletionHandler:^(NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"%@",error);
+    else
+    {
+        if (_countryNameLabel.text.length==0) {
+            [MBProgressHUD showError:@"please select a route" toView:self.view];
+            return;
         }
-        else
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        NSError *startError;
+        [manager.connection startVPNTunnelAndReturnError:&startError];
+        if (startError) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"please open the vpn permisssions" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            [alertView show];
+        }
+        else{
+            
+        }
+
+    }
+    
+}
+
+- (void)disconnectVPN
+{
+    [manager loadFromPreferencesWithCompletionHandler:^(NSError *error){
+        if (!error)
         {
-            NEVPNProtocolIKEv2* ikev = [[NEVPNProtocolIKEv2 alloc] init];
-            ikev.certificateType = NEVPNIKEv2CertificateTypeRSA;
-            ikev.authenticationMethod = NEVPNIKEAuthenticationMethodCertificate;
-            ikev.useExtendedAuthentication = YES;
-            
-            ikev.username = @"huzhe";
-            ikev.passwordReference = [self searchKeychainCopyMatching:@"VPN_PASSWORD"];
-            ikev.serverAddress = ipAddress;
-            ikev.remoteIdentifier = ipAddress;
-//            ikev.identityReference =  使用iOS钥匙串(keyChain)存入的identity;
-            
-            [manager setEnabled:YES];
-            [manager setProtocol:ikev];
-            [manager setOnDemandEnabled:NO];
-            [manager setLocalizedDescription:@"MyVPN"];
-            [manager saveToPreferencesWithCompletionHandler:^(NSError * _Nullable error) {
-                if(error) {
-                    NSLog(@"Save error: %@", error);
+            [manager.connection stopVPNTunnel];
+        }
+    }];
+}
+
+- (void)removeVPNProfile
+{
+    [[NEVPNManager sharedManager] loadFromPreferencesWithCompletionHandler:^(NSError *error){
+        if (!error)
+        {
+            [[NEVPNManager sharedManager] removeFromPreferencesWithCompletionHandler:^(NSError *error){
+                if(error)
+                {
+                    NSLog(@"Remove error: %@", error);
                 }
-                else {
-                    NSLog(@"Saved!");
+                else
+                {
+                    NSLog(@"removeFromPreferences");
                 }
             }];
         }
     }];
-    NSError *startError;
-    [[NEVPNManager sharedManager].connection startVPNTunnelAndReturnError:&startError];
-    [[NEVPNManager sharedManager] loadFromPreferencesWithCompletionHandler:^(NSError * _Nullable error) {
-        if(error)
+    
+}
+
+#pragma mark - VPN状态切换通知
+- (void)VPNStatusDidChangeNotification
+{
+    switch ([NEVPNManager sharedManager].connection.status)
+    {
+           
+
+        case NEVPNStatusInvalid:
         {
-            NSLog(@"VPN load error->%@", error);
+            NSLog(@"NEVPNStatusInvalid");
+            break;
         }
-        else
+        case NEVPNStatusDisconnected:
         {
-            NSError *startError;
-            [[NEVPNManager sharedManager].connection startVPNTunnelAndReturnError:&startError];
-            
-            if(startError) {
-                NSLog(@"Start error: %@", startError.localizedDescription);
-            } else {
-                NSLog(@"Connection established!");
-            }
+            NSLog(@"NEVPNStatusDisconnected");
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            _backImageView.image=[UIImage imageNamed:@"背景未连接"];
+            [_startButton setBackgroundImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
+            break;
         }
-    }];
+        case NEVPNStatusConnecting:
+        {
+            NSLog(@"NEVPNStatusConnecting");
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            break;
+        }
+        case NEVPNStatusConnected:
+        {
+            NSLog(@"NEVPNStatusConnected");
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            _backImageView.image=[UIImage imageNamed:@"背景已连接"];
+            [_startButton setBackgroundImage:[UIImage imageNamed:@"已连接"] forState:UIControlStateNormal];
+            _leftButton.hidden=NO;
+            _rightButton.hidden=NO;
+            _chooseLineButton.hidden=YES;
+            break;
+        }
+        case NEVPNStatusReasserting:
+        {
+            NSLog(@"NEVPNStatusReasserting");
+            break;
+        }
+        case NEVPNStatusDisconnecting:
+        {
+            NSLog(@"NEVPNStatusDisconnecting");
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            break;
+        }
+        default:
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            break;
+    }
 }
 #pragma mark - KeyChain
 static NSString * const serviceName = @"im.zorro.ipsec_demo.vpn_config";
@@ -190,12 +250,67 @@ static NSString * const serviceName = @"im.zorro.ipsec_demo.vpn_config";
        _countryNameLabel.text=routLineModel.countryName;
         [_countryImageView setImageWithURL:[NSURL URLWithString:routLineModel.homeCountryImageFile.url] options:YYWebImageOptionSetImageWithFadeAnimation];
         _chooseLineButton.hidden=YES;
+        _leftButton.hidden=NO;
+        _rightButton.hidden=NO;
         ipAddress=routLineModel.vpnIp;
+        [self creatVpn];
     }];
     selectRout.hidesBottomBarWhenPushed=YES;
     
     [self.navigationController pushViewController:selectRout animated:YES];
-    
+}
+
+
+- (void)creatVpn{
+    manager = [NEVPNManager sharedManager];
+    [manager loadFromPreferencesWithCompletionHandler:^(NSError * _Nullable error) {
+        if(error) {
+            
+            NSLog(@"Load error: %@", error);
+            
+        } else {
+            
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(VPNStatusDidChangeNotification) name:NEVPNStatusDidChangeNotification object:nil];
+            
+            // No errors! The rest of your codes goes here...
+            NEVPNProtocolIPSec *p = [[NEVPNProtocolIPSec alloc] init];
+            
+            p.username = @"huzhe";
+            p.serverAddress = ipAddress;
+            [self createKeychainValue:@"huzhe123" forIdentifier:@"VPN_PASSWORD"];
+            p.passwordReference = [self searchKeychainCopyMatching:@"VPN_PASSWORD"];
+            
+            p.authenticationMethod = NEVPNIKEAuthenticationMethodSharedSecret;
+            
+            p.sharedSecretReference = [self searchKeychainCopyMatching:@"PSK"];
+            [self createKeychainValue:@"vpn123456" forIdentifier:@"PSK"];
+            p.sharedSecretReference = [self searchKeychainCopyMatching:@"PSK"];
+            p.remoteIdentifier = ipAddress;
+            p.useExtendedAuthentication = YES;
+            p.disconnectOnSleep = NO;
+            manager.enabled=YES;
+            [manager setProtocol:p];
+            manager.localizedDescription=@"huzhe";
+            [manager saveToPreferencesWithCompletionHandler:^(NSError *error) {
+                
+                if(error) {
+                    
+                    NSLog(@"Save error: %@", error);
+                    
+                }
+                
+                else {
+                    
+                    NSLog(@"Saved!");
+                }
+                
+            }];
+            
+        }
+    }];
+}
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:loginSuccess object:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

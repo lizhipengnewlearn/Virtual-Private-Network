@@ -11,6 +11,8 @@
 #import "VPAgreementViewController.h"
 #import "VPAboutUsViewController.h"
 #import "VPLoginViewController.h"
+#import "PurchaseOrder.h"
+#import "DateManager.h"
 @interface VPMyViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 
 @end
@@ -22,6 +24,8 @@
     [self refreshData];
     [self.view addSubview:self.tableView];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshData) name:loginSuccess object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshData) name:purchSuccess object:nil];
+
 }
 - (void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES animated:YES];
@@ -49,21 +53,29 @@
 - (void)refreshData{
     if([AVUser currentUser])
     {
-        _dataArray=@[@"Due to the time",@"The terms of service",@"Privacy policy",@"About us",@"login out"];
+        _dataArray=@[@"Due to the time",@"The terms of service",@"Privacy policy",@"About us",@"logout"];
         AVQuery *query=[AVQuery queryWithClassName:@"PurchaseOrder"];
         [query whereKey:@"user" equalTo:[AVUser currentUser]];
         [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-            
+            if (objects.count>0) {
+                PurchaseOrder *purchaseOrder=objects[0];
+                NSString *endDateString=[DateManager stringToDayFromDate:purchaseOrder.endDate];
+                MyCell *cell=(MyCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                cell.contentLabel.text=endDateString;
+
+            }
         }];
+        [_tableView reloadData];
 
     }
     else
     {
         _dataArray=@[@"Due to the time",@"The terms of service",@"Privacy policy",@"About us"];
+        [_tableView reloadData];
+
 
     }
     
-    [_tableView reloadData];
 }
 
 - (MyHeadView *)myHeadView{
@@ -166,10 +178,16 @@
     if (buttonIndex==1) {
         [AVUser logOut];
         [self refreshData];
+        [[NSNotificationCenter defaultCenter]postNotificationName:loginSuccess object:nil];
     }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:loginSuccess object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:purchSuccess object:nil];
+
 }
 
 /*

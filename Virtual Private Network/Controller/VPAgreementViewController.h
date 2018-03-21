@@ -10,7 +10,8 @@
 #import "VPBaseViewController.h"
 typedef enum {
     VPAgreementTypePolicy=0,
-    VPAgreementTypeService
+    VPAgreementTypeService=1,
+     VPAgreementTypePurchase
 }VPagreementType;
 @interface VPAgreementViewController : VPBaseViewController
 @property (nonatomic, assign)VPagreementType agreementType;

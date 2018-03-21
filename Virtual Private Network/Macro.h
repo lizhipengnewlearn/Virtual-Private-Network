@@ -36,4 +36,7 @@
 #define LINE_COLOR COLOR(229,229,229)
 #define TITLE_SIZE 16
 #define  loginSuccess @"loginSuccess"
+#define  purchSuccess @"purchSuccess"
+
+
 #endif /* Macro_h */

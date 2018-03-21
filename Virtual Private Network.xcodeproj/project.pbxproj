@@ -41,6 +41,9 @@
 		042E3DEC205B9C850082B18E /* UINavigationBar+alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DEB205B9C850082B18E /* UINavigationBar+alpha.m */; };
 		042E3DF0205BAF2D0082B18E /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DEF205BAF2D0082B18E /* MyCell.m */; };
 		042E3DF3205BB2D30082B18E /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E3DF1205BB2D20082B18E /* CustomLabel.m */; };
+		0485917E2060EBF900AC0F18 /* ItemsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485917C2060EBF800AC0F18 /* ItemsButton.m */; };
+		04BBDA90206240DE00EB4B69 /* 购买.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04BBDA8F206240DE00EB4B69 /* 购买.txt */; };
+		04C911552060A91000EBE846 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C911542060A91000EBE846 /* NetworkExtension.framework */; };
 		04FBB603205D03A8001F2911 /* VPSelectRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FBB602205D03A8001F2911 /* VPSelectRouteViewController.m */; };
 		04FBB606205D0705001F2911 /* RoutLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FBB605205D0705001F2911 /* RoutLineCell.m */; };
 		D022409735005DF6D77FC1DC /* libPods-Virtual Private Network.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A20EF261F11D61A138C00D76 /* libPods-Virtual Private Network.a */; };
@@ -133,6 +136,10 @@
 		042E3DEF205BAF2D0082B18E /* MyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
 		042E3DF1205BB2D20082B18E /* CustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabel.m; sourceTree = "<group>"; };
 		042E3DF2205BB2D30082B18E /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
+		0485917C2060EBF800AC0F18 /* ItemsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsButton.m; sourceTree = "<group>"; };
+		0485917D2060EBF900AC0F18 /* ItemsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsButton.h; sourceTree = "<group>"; };
+		04BBDA8F206240DE00EB4B69 /* 购买.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "购买.txt"; sourceTree = "<group>"; };
+		04C911542060A91000EBE846 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		04FBB601205D03A8001F2911 /* VPSelectRouteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VPSelectRouteViewController.h; sourceTree = "<group>"; };
 		04FBB602205D03A8001F2911 /* VPSelectRouteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPSelectRouteViewController.m; sourceTree = "<group>"; };
 		04FBB604205D0705001F2911 /* RoutLineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutLineCell.h; sourceTree = "<group>"; };
@@ -148,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D022409735005DF6D77FC1DC /* libPods-Virtual Private Network.a in Frameworks */,
+				04C911552060A91000EBE846 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +219,7 @@
 				042E3DED205BA3100082B18E /* Macro.h */,
 				04082BB5205F8D2A006A34C7 /* 服务.txt */,
 				04082BB7205F8F76006A34C7 /* 隐私.txt */,
+				04BBDA8F206240DE00EB4B69 /* 购买.txt */,
 			);
 			path = "Virtual Private Network";
 			sourceTree = "<group>";
@@ -293,6 +302,8 @@
 		042E3DE3205B9BCF0082B18E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				0485917D2060EBF900AC0F18 /* ItemsButton.h */,
+				0485917C2060EBF800AC0F18 /* ItemsButton.m */,
 				04082BBF205FB112006A34C7 /* MBProgressHUD+Add.h */,
 				04082BC0205FB112006A34C7 /* MBProgressHUD+Add.m */,
 				04082BB2205F8706006A34C7 /* UILabel+Utils.h */,
@@ -316,6 +327,7 @@
 		9BA20C00B420794597B72E6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04C911542060A91000EBE846 /* NetworkExtension.framework */,
 				A20EF261F11D61A138C00D76 /* libPods-Virtual Private Network.a */,
 			);
 			name = Frameworks;
@@ -400,13 +412,13 @@
 				TargetAttributes = {
 					042E3D88205B68D60082B18E = {
 						CreatedOnToolsVersion = 9.0.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.NetworkExtensions.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.VPNLite = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -450,6 +462,7 @@
 				04082BB8205F8F76006A34C7 /* 隐私.txt in Resources */,
 				042E3D99205B68D60082B18E /* LaunchScreen.storyboard in Resources */,
 				042E3D96205B68D60082B18E /* Assets.xcassets in Resources */,
+				04BBDA90206240DE00EB4B69 /* 购买.txt in Resources */,
 				04082BB6205F8D2A006A34C7 /* 服务.txt in Resources */,
 				042E3D94205B68D60082B18E /* Main.storyboard in Resources */,
 			);
@@ -549,6 +562,7 @@
 				04082BB4205F8707006A34C7 /* UILabel+Utils.m in Sources */,
 				042E3DDF205B982C0082B18E /* VPBaseNavigationController.m in Sources */,
 				042E3DCD205B74B60082B18E /* VPHomeViewController.m in Sources */,
+				0485917E2060EBF900AC0F18 /* ItemsButton.m in Sources */,
 				04082BAE205F8613006A34C7 /* NSString+Size.m in Sources */,
 				04FBB603205D03A8001F2911 /* VPSelectRouteViewController.m in Sources */,
 				042E3DEC205B9C850082B18E /* UINavigationBar+alpha.m in Sources */,
@@ -723,8 +737,10 @@
 			baseConfigurationReference = 8EB3A622CCB19CD66EF78675 /* Pods-Virtual Private Network.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FJC4YVDSFX;
+				CODE_SIGN_ENTITLEMENTS = "Virtual Private Network/Virtual Private Network.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Darcy Nauman (AY9BA5X6JR)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = L9G2H47PFL;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/mac/Desktop/Virtual Private Network/Virtual Private Network/PrefixHeader.pch";
 				INFOPLIST_FILE = "Virtual Private Network/Info.plist";
@@ -732,6 +748,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darcy.facevpn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "209fca66-ed40-42d4-80b5-19630be79857";
+				PROVISIONING_PROFILE_SPECIFIER = faceVpnDev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -741,8 +759,10 @@
 			baseConfigurationReference = F318D9FD4BEFEABDF898F6B8 /* Pods-Virtual Private Network.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FJC4YVDSFX;
+				CODE_SIGN_ENTITLEMENTS = "Virtual Private Network/Virtual Private Network.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Darcy Nauman (AY9BA5X6JR)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = L9G2H47PFL;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/mac/Desktop/Virtual Private Network/Virtual Private Network/PrefixHeader.pch";
 				INFOPLIST_FILE = "Virtual Private Network/Info.plist";
@@ -750,6 +770,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darcy.facevpn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "209fca66-ed40-42d4-80b5-19630be79857";
+				PROVISIONING_PROFILE_SPECIFIER = faceVpnDev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
