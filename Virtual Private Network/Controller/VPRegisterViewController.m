@@ -94,20 +94,25 @@
     AVUser *user=[[AVUser alloc]init];
     [user setUsername:_usernameTextFiled.text];
     [user setPassword:_passwordTextField.text];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (succeeded) {
             [MBProgressHUD showError:@"reigster success" toView:self.view];
-            [[NSNotificationCenter defaultCenter]postNotificationName:loginSuccess object:nil];
             [self performSelector:@selector(dismissLastView) withObject:self afterDelay:0.5];
+
         }
         else
         {
             [MBProgressHUD showError:@"register failed" toView:self.view];
+            
         }
     }];
 }
 - (void)dismissLastView{
     [self dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:loginSuccess object:nil];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

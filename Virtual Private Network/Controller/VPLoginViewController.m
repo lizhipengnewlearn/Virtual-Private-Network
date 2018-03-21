@@ -41,7 +41,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
 - (UITextField *)usernameTextFiled{
     if (!_usernameTextFiled) {
         _usernameTextFiled=[[UITextField alloc]initWithFrame:CGRectMake(15, 143, SCREEN_WIDTH-30, 53)];
@@ -140,6 +139,12 @@
     [self presentViewController:registerView animated:YES completion:nil];
     
 }
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:loginSuccess object:nil];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

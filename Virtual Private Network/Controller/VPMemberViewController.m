@@ -79,49 +79,31 @@
 - (void)buttonClick:(UIButton*)button{
     
     flag=button.tag;
-    if ([AVUser currentUser])
-    {
-        AVQuery *query=[AVQuery queryWithClassName:@"PurchaseOrder"];
-        [query whereKey:@"user" equalTo:[AVUser currentUser]];
-        [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-            if (objects.count>0)
-            {
-                //之前买过会员
-                PurchaseOrder *purchOrderModel=objects[0];
-                NSString *endDateString=[DateManager stringFromDate:purchOrderModel.endDate];
-                NSString *nowDateStrig=[DateManager stringFromDate:[NSDate date]];
-                if([DateManager firstString:endDateString andSecondString:nowDateStrig]==YES)
-                {
-                    
-                }
-                else
-                {
-                    
-                }
-            }
-            else
-            {
-                if([SKPaymentQueue canMakePayments]){
-                    
-                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                    // productID就是你在创建购买项目时所填写的产品ID
-                    productIdString=ids[button.tag-100];
-                    [self requestProductID:productIdString];
-                    
-                }
-                else
-                {
-                    // NSLog(@"不允许程序内付费");
-                    UIAlertView *alertError = [[UIAlertView alloc] initWithTitle:@"温馨提示"
-                                                                         message:@"请先开启应用内付费购买功能。"
-                                                                        delegate:nil
-                                                               cancelButtonTitle:@"确定"
-                                                               otherButtonTitles: nil];
-                    [alertError show];
-                }
-            }
-        }];
+    if (![AVUser currentUser]) {
+        VPLoginViewController *loginView=[[VPLoginViewController alloc]init];
+        [self presentViewController:loginView animated:YES completion:nil];
+        return;
     }
+    
+    if([SKPaymentQueue canMakePayments]){
+        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        // productID就是你在创建购买项目时所填写的产品ID
+        productIdString=ids[button.tag-100];
+        [self requestProductID:productIdString];
+        
+    }
+    else
+    {
+        // NSLog(@"不允许程序内付费");
+        UIAlertView *alertError = [[UIAlertView alloc] initWithTitle:@"温馨提示"
+                                                             message:@"请先开启应用内付费购买功能。"
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"确定"
+                                                   otherButtonTitles: nil];
+        [alertError show];
+    }
+
 }
 #pragma mark 1.请求所有的商品ID
 -(void)requestProductID:(NSString*)productId{
@@ -170,8 +152,8 @@
             }break;
             case SKPaymentTransactionStatePurchased:{
                 
-                
                 NSLog(@"购买成功");
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
                 [MBProgressHUD showSuccess:@"purchase success" toView:self.view];
                 
                 // 购买后告诉交易队列，把这个成功的交易移除掉
@@ -179,16 +161,17 @@
                 [self buyAppleStoreProductSucceedWithPaymentTransactionp:transaction];
                 AVQuery *query=[AVQuery queryWithClassName:@"PurchaseOrder"];
                 [query whereKey:@"user" equalTo:[AVUser currentUser]];
+                [query orderByDescending:@"endDate"];
                 [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
                     if (objects.count>0) {
                         //之前买过会员
-                        PurchaseOrder *purchOrderModel=objects[0];
+                        PurchaseOrder *purchOrderModel=[objects firstObject];
                         NSString *endDateString=[DateManager stringFromDate:purchOrderModel.endDate];
                         NSString *nowDateStrig=[DateManager stringFromDate:[NSDate date]];
                         if([DateManager firstString:endDateString andSecondString:nowDateStrig]==YES)//如果会员没有过期
                         {
-                            [purchOrderModel setObject:[NSDate date] forKey:@"beginDate"];
-                            [purchOrderModel setObject:[AVUser currentUser] forKey:@"user"];
+                            PurchaseOrder *orderModel=[[PurchaseOrder alloc]init];
+                            [orderModel setObject:[AVUser currentUser] forKey:@"user"];
                             int days;
                             if (flag==100) {
                                 days=7;
@@ -205,15 +188,16 @@
                             NSDate *dates = purchOrderModel.endDate;
                             NSTimeInterval interval = 60 * 60 *24*days;
                             NSDate *endDate = [NSDate dateWithTimeInterval:interval sinceDate:dates];
-                            [purchOrderModel setObject:endDate forKey:@"endDate"];
-                            [purchOrderModel saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                            [orderModel setObject:[NSDate date] forKey:@"beginDate"];
+                            [orderModel setObject:endDate forKey:@"endDate"];
+                            [orderModel saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                                 [[NSNotificationCenter defaultCenter]postNotificationName:purchSuccess object:nil];
                             }];
                         }
                         else//如果会员过期了
                         {
-                            [purchOrderModel setObject:[NSDate date] forKey:@"beginDate"];
-                            [purchOrderModel setObject:[AVUser currentUser] forKey:@"user"];
+                            PurchaseOrder *orderModel=[[PurchaseOrder alloc]init];
+                            [orderModel setObject:[AVUser currentUser] forKey:@"user"];
                             int days;
                             if (flag==100) {
                                 days=7;
@@ -230,8 +214,9 @@
                             NSDate *dates = [NSDate date];
                             NSTimeInterval interval = 60 * 60 *24*days;
                             NSDate *endDate = [NSDate dateWithTimeInterval:interval sinceDate:dates];
-                            [purchOrderModel setObject:endDate forKey:@"endDate"];
-                            [purchOrderModel saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                            [orderModel setObject:[NSDate date] forKey:@"beginDate"];
+                            [orderModel setObject:endDate forKey:@"endDate"];
+                            [orderModel saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                                 [[NSNotificationCenter defaultCenter]postNotificationName:purchSuccess object:nil];
 
                             }];
@@ -271,6 +256,7 @@
             case SKPaymentTransactionStateFailed:{
                 
                 NSLog(@"购买失败");
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
                 [MBProgressHUD showError:@"Transaction Fail" toView:self.view];
                 // 购买失败也要把这个交易移除掉
                 [queue finishTransaction:transaction];
@@ -290,8 +276,8 @@
     }
 }
 -(void)requestDidFinish:(SKRequest *)request{
-    NSLog(@"信息反馈结束");
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    NSLog(@"%@",request);
+   // [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 

@@ -56,14 +56,20 @@
         _dataArray=@[@"Due to the time",@"The terms of service",@"Privacy policy",@"About us",@"logout"];
         AVQuery *query=[AVQuery queryWithClassName:@"PurchaseOrder"];
         [query whereKey:@"user" equalTo:[AVUser currentUser]];
+        [query orderByDescending:@"endDate"];
         [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
             if (objects.count>0) {
-                PurchaseOrder *purchaseOrder=objects[0];
+                PurchaseOrder *purchaseOrder=[objects firstObject];
                 NSString *endDateString=[DateManager stringToDayFromDate:purchaseOrder.endDate];
                 MyCell *cell=(MyCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
                 cell.contentLabel.text=endDateString;
 
             }
+            else
+                {
+                    MyCell *cell=(MyCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+                    cell.contentLabel.text=@"";
+                }
         }];
         [_tableView reloadData];
 
@@ -71,6 +77,8 @@
     else
     {
         _dataArray=@[@"Due to the time",@"The terms of service",@"Privacy policy",@"About us"];
+        MyCell *cell=(MyCell*)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        cell.contentLabel.text=@"";
         [_tableView reloadData];
 
 

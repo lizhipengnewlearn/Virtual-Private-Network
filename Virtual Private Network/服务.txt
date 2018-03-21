@@ -14,37 +14,37 @@ Subscription information
   * when the subscription is due, it will be repurchased if necessary.\
 
 Definitions
-  In this Agreement, “Application” refers to the application developed by us entitled “Windly vpn”.
+  In this Agreement, “Application” refers to the application developed by us entitled “face  vpn”.
 
   Unless the context requires otherwise, a reference to the “Application” includes all modifications, enhancements or updates thereto, and includes all associated printed, online or electronic documentation and instructions relating to it.
 
-  The Terms and Conditions agreement can act as a legal contract between us, the Windly vpn and you, the users of Windly vpn service.
+  The Terms and Conditions agreement can act as a legal contract between us, the face  vpn and you, the users of face  vpn service.
 
-  Please read the following Terms of Service ("Terms", "Terms of Service") carefully before using the Virtual Private Network (“VPN”) operated by Windly vpn ("us", "we", or "our")
+  Please read the following Terms of Service ("Terms", "Terms of Service") carefully before using the Virtual Private Network (“VPN”) operated by face  vpn ("us", "we", or "our")
 
   Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.
 
   By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service.
 
 The Terms of Service
-  Windly vpn provides the Service as a means of protecting your privacy by establishing a secure Virtual Private Network (“VPN”) when connecting to the Internet.
+  face  vpn provides the Service as a means of protecting your privacy by establishing a secure Virtual Private Network (“VPN”) when connecting to the Internet.
 
 The Privacy Policy
-  Windly vpn respects and protects all users’ private privacy; we will never and shall not have the right to disclosure your information to the third parties for any purposes without users’ permission.
+  face  vpn respects and protects all users’ private privacy; we will never and shall not have the right to disclosure your information to the third parties for any purposes without users’ permission.
 
 Free & Subscriptions
   Some parts of the Service are billed on a subscription basis ("Subscription(s)"). You will be billed in advance on a recurring.
 
-  The Subscription section is for Windly vpn business.
+  The Subscription section is for face  vpn business.
 
 Service Support
-  We are very concerned about our user's product experience when using Windly vpn. For any problems about it, please feel free to tell us. We will reply and solve for you immediately.
+  We are very concerned about our user's product experience when using face  vpn. For any problems about it, please feel free to tell us. We will reply and solve for you immediately.
 
 Install & Updates
   We have the right to install certificates and future updates at any time without any notice.
 
 Security Measures
-  Windly vpn keeps no logs which enable interference with your IP address, the moment or content of your data traffic. We make express reference to the fact that we do not record in logs communication contents or data regarding the accessed websites or the IP addresses.
+  face  vpn keeps no logs which enable interference with your IP address, the moment or content of your data traffic. We make express reference to the fact that we do not record in logs communication contents or data regarding the accessed websites or the IP addresses.
 
 Changes
   We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.

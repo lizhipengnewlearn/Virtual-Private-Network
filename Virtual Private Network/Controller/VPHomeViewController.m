@@ -121,9 +121,7 @@
         else{
             
         }
-
     }
-    
 }
 
 - (void)disconnectVPN
