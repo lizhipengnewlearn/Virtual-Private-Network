@@ -200,51 +200,25 @@
                 
                 
                 NSLog(@"购买成功");
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
                 [MBProgressHUD showSuccess:@"purchase success" toView:self.view];
                 
                 // 购买后告诉交易队列，把这个成功的交易移除掉
                 [queue finishTransaction:transaction];
                 [self buyAppleStoreProductSucceedWithPaymentTransactionp:transaction];
-                AVQuery *query=[AVQuery queryWithClassName:@"PurchaseOrder"];
-                [query whereKey:@"user" equalTo:[AVUser currentUser]];
-                [query orderByDescending:@"endDate"];
-                [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-                    if (objects.count>0)
-                    {
-                        //之前买过会员
-                        PurchaseOrder *purchOrderModel=[objects firstObject];
-                        NSString *endDateString=[DateManager stringFromDate:purchOrderModel.endDate];
-                        NSString *nowDateStrig=[DateManager stringFromDate:[NSDate date]];
-                        if([DateManager firstString:endDateString andSecondString:nowDateStrig]==YES)//如果会员没有过期
-                        {
-                            int days=365;
-                            PurchaseOrder *orderModel=[[PurchaseOrder alloc]init];
-                            [orderModel setObject:[AVUser currentUser] forKey:@"user"];
-                            NSDate *dates = purchOrderModel.endDate;
-                            NSTimeInterval interval = 60 * 60 *24*days;
-                            NSDate *endDate = [NSDate dateWithTimeInterval:interval sinceDate:dates];
-                            [orderModel setObject:[NSDate date] forKey:@"beginDate"];
-                            [orderModel setObject:endDate forKey:@"endDate"];
-                            [orderModel saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                                [[NSNotificationCenter defaultCenter]postNotificationName:purchSuccess object:nil];
-                            }];
-                        }
-                    }
-                    else
-                    {
-                        PurchaseOrder *purchOrderModel=[[PurchaseOrder  alloc]init];
-                        [purchOrderModel setObject:[NSDate date] forKey:@"beginDate"];
-                        [purchOrderModel setObject:[AVUser currentUser] forKey:@"user"];
-                        int days=365;
-                        NSDate *dates = [NSDate date];
-                        NSTimeInterval interval = 60 * 60 *24*days;
-                        NSDate *endDate = [NSDate dateWithTimeInterval:interval sinceDate:dates];
-                        [purchOrderModel setObject:endDate forKey:@"endDate"];
-                        [purchOrderModel saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                            [[NSNotificationCenter defaultCenter]postNotificationName:purchSuccess object:nil];
-                            
-                        }];
-                    }
+                
+                //之前买过会员过期了  或者没有买过会员
+                PurchaseOrder *purchOrderModel=[[PurchaseOrder  alloc]init];
+                [purchOrderModel setObject:[NSDate date] forKey:@"beginDate"];
+                [purchOrderModel setObject:[AVUser currentUser] forKey:@"user"];
+                int days=365;
+                NSDate *dates = [NSDate date];
+                NSTimeInterval interval = 60 * 60 *24*days;
+                NSDate *endDate = [NSDate dateWithTimeInterval:interval sinceDate:dates];
+                [purchOrderModel setObject:endDate forKey:@"endDate"];
+                [purchOrderModel saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    [[NSNotificationCenter defaultCenter]postNotificationName:purchSuccess object:nil];
+                    
                 }];
                 
             }break;

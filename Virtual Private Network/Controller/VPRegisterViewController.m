@@ -102,9 +102,12 @@
             [self performSelector:@selector(dismissLastView) withObject:self afterDelay:0.5];
 
         }
+        else if (error.code==202){
+            [MBProgressHUD showError:@"username has already been taken" toView:self.view];
+        }
         else
         {
-            [MBProgressHUD showError:@"register failed" toView:self.view];
+            [MBProgressHUD showError:@"failed please try to change a username" toView:self.view];
             
         }
     }];

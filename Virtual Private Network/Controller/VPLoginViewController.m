@@ -60,6 +60,7 @@
     if (!_passwordTextField) {
         _passwordTextField=[[UITextField alloc]initWithFrame:CGRectMake(15, _firstLineView.frame.size.height+_firstLineView.frame.origin.y, _usernameTextFiled.frame.size.width, _usernameTextFiled.frame.size.height)];
         _passwordTextField.textAlignment=NSTextAlignmentCenter;
+        _passwordTextField.secureTextEntry=YES;
         _passwordTextField.placeholder=@"password";
     }
     return _passwordTextField;
@@ -95,12 +96,31 @@
         [MBProgressHUD showError:@"please input password" toView:self.view];
         return;
     }
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [AVUser logInWithUsernameInBackground:_usernameTextFiled.text password:_passwordTextField.text block:^(AVUser * _Nullable user, NSError * _Nullable error) {
        if(user)
        {
+           [MBProgressHUD hideHUDForView:self.view animated:YES];
            [[NSNotificationCenter defaultCenter]postNotificationName:loginSuccess object:nil];
            [self dismissViewControllerAnimated:YES completion:nil];
        }
+       else if(error.code==210)
+       {
+           [MBProgressHUD hideHUDForView:self.view animated:YES];
+           [MBProgressHUD showError:@"the username and password mismatch" toView:self.view];
+       }
+        else if(error.code==211)
+        {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+             [MBProgressHUD showError:@"could not find user" toView:self.view];
+        }
+        else{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD showError:@"login failed please check the password" toView:self.view];
+        }
+
+    
     }];
 }
 

@@ -128,7 +128,7 @@
         cell.rightImagView.hidden=NO;
     }
     if (indexPath.row==3) {
-        cell.contentLabel.text=@"V1.0.0";
+        cell.contentLabel.text=@"V1.9.1";
     }
     
     cell.selectionStyle=NO;
